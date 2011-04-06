@@ -34,7 +34,13 @@ gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
+gem 'factory_girl_rails', :group => [:development, :test]
 gem "settingslogic"
 gem "nifty-generators", :group => :development
 gem "simple_form"
+gem "friendly_id", "~> 3.2.1"
+gem "ancestry"
+gem "mocha", :group => :test # friendly_id
+
+
 

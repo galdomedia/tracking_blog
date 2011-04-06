@@ -1,0 +1,11 @@
+one:
+  title: MyString
+  cached_slug: MyString
+  body: MyText
+  admin: 
+
+two:
+  title: MyString
+  cached_slug: MyString
+  body: MyText
+  admin: 
