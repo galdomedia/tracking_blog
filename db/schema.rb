@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406164608) do
+ActiveRecord::Schema.define(:version => 20110406171933) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(:version => 20110406164608) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
   add_index "admins", ["unlock_token"], :name => "index_admins_on_unlock_token", :unique => true
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.string   "cached_slug"
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20110406164608) do
     t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
   create_table "slugs", :force => true do |t|

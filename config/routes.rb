@@ -1,5 +1,12 @@
 TrackingBlog::Application.routes.draw do
   
+  resources :categories do
+    collection do
+      get :reorder
+      post :sort
+    end
+  end
+
   devise_for :admins
 
   resources :posts

@@ -4,12 +4,12 @@ class Post < ActiveRecord::Base
   scope :ordered, order('created_at DESC')
 
   belongs_to :admin
-
+  belongs_to :category
   
   
   validates :title, :body, :presence=>true
 
   
-  attr_accessible :title, :body
+  attr_accessible :title, :body, :category_id
 
 end

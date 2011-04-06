@@ -4,14 +4,8 @@
   %strong Title:
   = @post.title
 %p
-  %strong Cached Slug:
-  = @post.cached_slug
-%p
   %strong Body:
   = @post.body
-%p
-  %strong Admin:
-  = @post.admin
 
 %p
   = link_to "Edit", edit_post_path(@post)

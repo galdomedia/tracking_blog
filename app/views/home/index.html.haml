@@ -2,17 +2,12 @@
   - unless @posts.empty?
     - for p in @posts
       %div{:id=>"post_#{p.id}"}
-        = p.title
-        = p.body
+        %h2
+          = p.title
+        %p
+          = p.body
   - else
     &nbsp;
 
-#sidebar
-  - if admin_signed_in?
-    = link_to "new_post", new_post_path
-    %br
-  - else
-    = link_to "login", new_admin_session_path
-    %br
-    = link_to "register", new_admin_registration_path
-%div.clear
+
+
