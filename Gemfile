@@ -41,6 +41,6 @@ gem "simple_form"
 gem "friendly_id", "~> 3.2.1"
 gem "ancestry"
 gem "mocha", :group => :test # friendly_id
-
+gem 'meta_search'
 
 

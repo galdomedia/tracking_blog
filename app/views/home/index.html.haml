@@ -1,13 +1,5 @@
-#posts
-  - unless @posts.empty?
-    - for p in @posts
-      %div{:id=>"post_#{p.id}"}
-        %h2
-          = p.title
-        %p
-          = p.body
-  - else
-    &nbsp;
+%section#posts
+  = render '/shared/posts'
 
 
 

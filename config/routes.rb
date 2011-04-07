@@ -9,7 +9,12 @@ TrackingBlog::Application.routes.draw do
 
   devise_for :admins
 
-  resources :posts
+  resources :posts do
+    collection do
+      get :feed, :defaults => { :format => 'atom' }
+      get :by_month
+    end
+  end
 
 
   # The priority is based upon order of creation:

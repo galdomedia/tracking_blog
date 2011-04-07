@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_admin!, :except=>[:index, :show]
+  before_filter :authenticate_admin!, :except=>[:show, :feed]
 
   def index
     @posts = Post.all
@@ -41,4 +41,27 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_url, :notice => "Successfully destroyed post."
   end
+
+  def feed
+    @title = Settings.blog_name
+    @posts = Post.ordered.all
+    # Feed's update timestamp
+    @updated = @posts.first.updated_at unless @posts.empty?
+
+    respond_to do |format|
+      format.atom { render :layout => false }
+      format.rss { redirect_to feed_posts_path(:format => :atom), :status => :moved_permanently }
+    end
+  end
+
+  def by_month
+    return(redirect_to(root_url)) if params[:m].blank?
+    begin
+      @d = Time.parse(params[:m])
+    rescue
+      return(redirect_to(root_url)) 
+    end
+    @posts = Post.ordered.where('created_at > ?', @d.beginning_of_month).where('created_at < ?', @d.end_of_month).all
+  end
+  
 end

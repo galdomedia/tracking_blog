@@ -5,5 +5,5 @@ tmp/
 config/database.yml
 .rvmrc
 config/application.yml
-public/application.css
+public/stylesheets/application.css
 

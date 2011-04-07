@@ -10,17 +10,29 @@
     = csrf_meta_tag
     = yield(:head)
 
+
   %body
-    #container
+    %header#page_header
+      = link_to Settings.blog_name, root_path
+    
+    %section#content
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
       - if show_title?
         %h1= yield(:title)
 
-      #content
-        = yield
-      #sidebar
+      = yield
+    %section#sidebar
+      %nav
+        %h3 Archives
+        - @posts_months.sort.reverse.each do |month, posts| 
+          = link_to "#{month.strftime("%B %Y")} (#{posts.count})", by_month_posts_path(:m=>month.strftime("%m-%Y"))
+          %br
+        
+        %h3 RSS
+        = link_to "ATOM", feed_posts_path
+        %h3 Manage
         - if admin_signed_in?
           = link_to "posts", posts_path
           %br
@@ -32,4 +44,6 @@
           = link_to "login", new_admin_session_path
           %br
           = link_to "register", new_admin_registration_path
-      %div.clear
+    %footer#page_footer
+      %p
+        &copy; 2011 <a href="http://galdomedia.pl/">GaldoMedia</a>
