@@ -6,10 +6,10 @@ body
   width: 960px
   font:
     family: Verdana, Helvetica, Arial
-    size: 14px
+    size: 10px
 
 a
-  color: blue
+  color: #007fff
   img
     border: none
 
@@ -26,6 +26,11 @@ li
 
 header#page_header
   width: 100%
+  h1
+    margin-left: 150px
+    a
+      color: #005fbf
+      text-decoration: none
 
 header#page_header nav ul, 
 #page_footer nav ul
@@ -39,11 +44,15 @@ footer#page_footer nav ul li
   margin: 0 20px 0 0 
   display: inline
 
-section#posts,
-section#post,
-section#management
+section#content
   float: right
   width: 74%
+
+article.single_post
+  h2
+    margin: 0
+  time
+    padding-left: 30px
 
 section#posts aside
   float: right
@@ -54,7 +63,8 @@ section#posts aside
 
 section#sidebar
   float: left
-  width: 25%
+  width: 22%
+  text-align: right
 
 footer#page_footer
   clear: both

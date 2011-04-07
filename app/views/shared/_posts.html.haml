@@ -1,10 +1,5 @@
 - unless @posts.empty?
   - for p in @posts
-    %article{:id=>"post_#{p.id}"}
-      %header
-        %h2
-          = p.title
-      %p
-        = p.body
+    = render :partial=>'/shared/post', :locals=>{:post=>p}
 - else
   &nbsp;
