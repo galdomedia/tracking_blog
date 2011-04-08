@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   
   
-  validates :title, :body, :presence=>true
+  validates :title, :body, :admin_id, :presence=>true
 
   
   attr_accessible :title, :body, :category_id

@@ -70,7 +70,6 @@ GEM
       activesupport (~> 3.0.2)
       arel (~> 2.0.2)
     mime-types (1.16)
-    mocha (0.9.12)
     mysql2 (0.2.7)
     nifty-generators (0.4.6)
     orm_adapter (0.0.4)
@@ -130,11 +129,10 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   meta_search
-  mocha
   mysql2
   nifty-generators
   rails (= 3.0.6)
-  rspec-rails (>= 2.0.1)
+  rspec-rails (>= 2.5)
   settingslogic
   shoulda-matchers
   simple_form

@@ -5,9 +5,10 @@ describe PostsController do
 
   before do
     @admin = Factory.create(:admin)
-    @admin.confirm!
     sign_in @admin
-    @existing_post = Factory.create(:post, :admin=>@user)
+    @existing_post = Factory.build(:post)
+    @existing_post.admin=@admin
+    @existing_post.save
   end
   
 
@@ -17,7 +18,7 @@ describe PostsController do
   end
 
   it "show action should render show template" do
-    get :show, :id => Post.first
+    get :show, :id => @existing_post.to_param
     response.should render_template(:show)
   end
 
@@ -27,36 +28,37 @@ describe PostsController do
   end
 
   it "create action should render new template when model is invalid" do
-    Post.any_instance.stubs(:valid?).returns(false)
+    Post.stub!(:valid?).and_return(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Post.any_instance.stubs(:valid?).returns(true)
-    post :create
+    Post.stub!(:valid?).and_return(true)
+    post :create, :post=>Factory.attributes_for(:post)
     response.should redirect_to(post_url(assigns[:post]))
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => Post.first
+    get :edit, :id => @existing_post.to_param
     response.should render_template(:edit)
   end
 
   it "update action should render edit template when model is invalid" do
-    Post.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Post.first
+    Post.should_receive(:find).with(@existing_post.to_param).and_return(@existing_post)
+    @existing_post.stub!(:valid?).and_return(false)
+    put :update, :id => @existing_post.to_param
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    Post.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Post.first
+    Post.stub!(:valid?).and_return(true)
+    put :update, :id => @existing_post.to_param
     response.should redirect_to(post_url(assigns[:post]))
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    post = Post.first
+    post = @existing_post.to_param
     delete :destroy, :id => post
     response.should redirect_to(posts_url)
     Post.exists?(post.id).should be_false
