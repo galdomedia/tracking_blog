@@ -58,9 +58,21 @@ describe PostsController do
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    post = @existing_post.to_param
-    delete :destroy, :id => post
+    post = @existing_post
+    delete :destroy, :id => post.to_param
     response.should redirect_to(posts_url)
     Post.exists?(post.id).should be_false
+  end
+
+  context "feed" do
+    it "rss should redirect to atom" do
+      get :feed, :format=>:rss
+      response.should redirect_to(feed_posts_url(:format=>:atom))
+    end
+
+    it "atom feed shold render feed" do
+      get :feed, :format=>:atom
+      response.should render_template(:feed)
+    end
   end
 end
