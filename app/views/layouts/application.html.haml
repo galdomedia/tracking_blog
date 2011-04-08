@@ -5,6 +5,11 @@
     %title
       = yield(:title) || "Untitled"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    
     = stylesheet_link_tag "application"
     = javascript_include_tag :defaults
     = csrf_meta_tag
@@ -28,6 +33,7 @@
       %nav
         %h3 Archives
         - @posts_months.sort.reverse.each do |month, posts| 
+          &raquo;
           = link_to "#{month.strftime("%B %Y")} (#{posts.count})", by_month_posts_path(:m=>month.strftime("%m-%Y"))
           %br
         
@@ -49,3 +55,6 @@
     %footer#page_footer
       %p
         &copy; 2011 <a href="http://galdomedia.pl/">GaldoMedia</a>
+    %a{:id=>"github", :href=>"https://github.com/galdomedia/tracking_rails"}
+      %span Fork me on Github
+      %span And spread the word!

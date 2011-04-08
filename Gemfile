@@ -34,6 +34,7 @@ gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
+gem 'shoulda-matchers', :group=>[:test]
 gem 'factory_girl_rails', :group => [:development, :test]
 gem "settingslogic"
 gem "nifty-generators", :group => :development
@@ -43,4 +44,5 @@ gem "ancestry"
 gem "mocha", :group => :test # friendly_id
 gem 'meta_search'
 
+gem "compass", ">= 0.10.6"
 
