@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_admin!, :except=>[:show, :feed]
+  before_filter :authenticate_admin!, :except=>[:show, :feed, :by_month]
 
   def index
     @posts = Post.all
