@@ -5,7 +5,7 @@
     %p
       %time{:datetime=>post.created_at}=l(post.created_at)
   %p
-    = post.body
+    = raw post.body
   %footer
     - if admin_signed_in?
       %p
