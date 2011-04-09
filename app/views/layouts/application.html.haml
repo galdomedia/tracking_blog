@@ -13,6 +13,7 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag :defaults
     = csrf_meta_tag
+    = render :partial=>"/shared/google_analytics", :locals=>{:analytics_id=>Settings.google_analytics_id} unless Settings.google_analytics_id.blank?
     = yield(:head)
 
 
