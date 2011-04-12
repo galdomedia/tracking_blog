@@ -39,13 +39,13 @@ describe PagesController do
   end
 
   it "create action should render new template when model is invalid" do
-    Page.any_instance.stubs(:valid?).returns(false)
+    Page.stub!(:valid?).and_return(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Page.any_instance.stubs(:valid?).returns(true)
+    Page.stub!(:valid?).and_return(true)
     post :create, :page=>Factory.attributes_for(:page)
     response.should redirect_to(page_url(assigns[:page]))
   end
@@ -63,7 +63,7 @@ describe PagesController do
   end
 
   it "update action should redirect when model is valid" do
-    Page.any_instance.stubs(:valid?).returns(true)
+    Page.stub!(:valid?).and_return(true)
     put :update, :id => @existing_page.to_param
     response.should redirect_to(page_url(assigns[:page]))
   end
