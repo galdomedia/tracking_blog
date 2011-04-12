@@ -1,0 +1,15 @@
+- title "Pages"
+
+%table
+  %tr
+    %th Title
+    %th Is published
+  - for page in @pages
+    %tr
+      %td= page.title
+      %td= page.is_published
+      %td= link_to 'Show', page
+      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Page", new_page_path
