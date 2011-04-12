@@ -34,6 +34,8 @@ GEM
     babosa (0.3.0)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    client_side_validations (3.0.2)
+      activesupport (~> 3.0.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     devise (1.2.1)
@@ -70,6 +72,7 @@ GEM
       activesupport (~> 3.0.2)
       arel (~> 2.0.2)
     mime-types (1.16)
+    mocha (0.9.12)
     mysql2 (0.2.7)
     nifty-generators (0.4.6)
     orm_adapter (0.0.4)
@@ -121,6 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
+  client_side_validations
   compass (>= 0.10.6)
   devise
   factory_girl_rails
@@ -129,6 +133,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   meta_search
+  mocha
   mysql2
   nifty-generators
   rails (= 3.0.6)

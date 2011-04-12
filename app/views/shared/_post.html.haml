@@ -1,7 +1,7 @@
 %article{:id=>"post_#{post.id}", :class=>"single_post"}
   %header
     %h2
-      = post.title
+      = link_to post.title, post
     %p
       %time{:datetime=>post.created_at}=l(post.created_at)
   %p

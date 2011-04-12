@@ -43,6 +43,8 @@ gem "simple_form"
 gem "friendly_id", "~> 3.2.1"
 gem "ancestry"
 gem 'meta_search'
+gem 'client_side_validations'
 
 gem "compass", ">= 0.10.6"
 
+gem "mocha", :group => :test
