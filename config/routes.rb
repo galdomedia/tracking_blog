@@ -1,5 +1,7 @@
 TrackingBlog::Application.routes.draw do
   
+  resources :pages
+
   resources :categories do
     collection do
       get :reorder

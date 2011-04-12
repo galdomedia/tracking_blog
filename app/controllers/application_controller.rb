@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
 
 
   def fetch_sidebar_content
+    # @todo: Cache bellow
+    #
     @posts_months = Post.all.group_by { |p| p.created_at.beginning_of_month }
+    @pages = Page.published.all
   end
 
 end

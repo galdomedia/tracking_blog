@@ -7,7 +7,6 @@ describe PostsController do
     @admin = Factory.create(:admin)
     sign_in @admin
     @existing_post = Factory.build(:post)
-    @existing_post.admin=@admin
     @existing_post.save
   end
   
