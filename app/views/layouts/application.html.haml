@@ -48,8 +48,8 @@
         %h3 RSS
         = link_to "ATOM", feed_posts_path
         
+        %h3 Manage
         - if admin_signed_in?
-          %h3 Manage
           = link_to "posts", posts_path
           %br
           = link_to "new_post", new_post_path
