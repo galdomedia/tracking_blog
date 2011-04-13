@@ -36,6 +36,7 @@ GEM
     builder (2.1.2)
     client_side_validations (3.0.2)
       activesupport (~> 3.0.0)
+    coderay (0.9.7)
     compass (0.10.6)
       haml (>= 3.0.4)
     devise (1.2.1)
@@ -125,6 +126,7 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   client_side_validations
+  coderay
   compass (>= 0.10.6)
   devise
   factory_girl_rails

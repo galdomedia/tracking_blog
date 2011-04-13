@@ -46,5 +46,6 @@ gem 'meta_search'
 gem 'client_side_validations'
 
 gem "compass", ">= 0.10.6"
+gem "coderay", :require=>false
 
 gem "mocha", :group => :test
