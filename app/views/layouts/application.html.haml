@@ -69,3 +69,4 @@
     %a{:id=>"github", :href=>"https://github.com/galdomedia/tracking_rails"}
       %span Fork me on Github
       %span And spread the word!
+    = render :partial=>"/shared/disqus_body" unless Settings.disqus_shortname.blank?

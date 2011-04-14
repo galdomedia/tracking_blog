@@ -6,7 +6,17 @@
       %time{:datetime=>post.created_at}=l(post.created_at)
   %p
     ~ raw highlight_source(post.body) 
+  
+  - unless Settings.disqus_shortname.blank?
+    %p
+      - if defined?(show_comments) and show_comments
+        = render :partial=>"/shared/disqus_comments"
+      - else
+        = link_to post.title, post_url(post, :anchor=>'disqus_thread'), :'data-disqus-identifier'=>post.identifier
+
+
   %footer
+    = link_to "Permalink", post_url(post)
     - if admin_signed_in?
       %p
         = link_to "Edit", edit_post_path(post)
@@ -14,4 +24,5 @@
         = link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete
         |
         = link_to "View All", posts_path
+  
 

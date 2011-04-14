@@ -12,4 +12,7 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :body, :category_id
 
+  def identifier
+    "#{Settings.blog_name.parameterize}-post-#{self.id}"
+  end
 end
