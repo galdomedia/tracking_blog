@@ -4,8 +4,8 @@
   %head
     %title
       - if content_for?(:title)
-        = yield(:title)
-        |
+        = succeed " | " do
+          = yield(:title)
       = Settings.blog_name
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
