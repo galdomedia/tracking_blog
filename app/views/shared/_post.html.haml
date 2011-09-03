@@ -5,7 +5,7 @@
     %p
       %time{:datetime=>post.created_at}=l(post.created_at)
   %p
-    ~ raw highlight_source(post.body) 
+    ~ raw highlight_source(post.body).html_safe
   
   - unless Settings.disqus_shortname.blank?
     %p

@@ -36,7 +36,7 @@ GEM
     builder (2.1.2)
     client_side_validations (3.0.2)
       activesupport (~> 3.0.0)
-    coderay (0.9.7)
+    coderay (0.9.8)
     compass (0.10.6)
       haml (>= 3.0.4)
     devise (1.2.1)
