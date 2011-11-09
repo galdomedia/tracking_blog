@@ -64,8 +64,11 @@
           = link_to "login", new_admin_session_path
           =# link_to "register", new_admin_registration_path
     %footer#page_footer
-      %p
-        &copy; 2011 <a href="http://galdomedia.pl/">GaldoMedia</a>
+      %p>
+        &copy; 2011 
+        = link_to "GaldoMedia", "http://galdomedia.pl/"
+        \/
+        = link_to "GroovyRuby", "http://groovyru.by/"
     %a{:id=>"github", :href=>"https://github.com/galdomedia/tracking_blog"}
       %span Fork me on Github
       %span And spread the word!
