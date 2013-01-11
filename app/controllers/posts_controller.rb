@@ -56,6 +56,7 @@ class PostsController < ApplicationController
 
   def by_month
     return(redirect_to(root_url)) if params[:m].blank?
+    @d = Time.now
     begin
       @d = Time.parse(params[:m])
     rescue
